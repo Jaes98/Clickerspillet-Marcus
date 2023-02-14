@@ -1,0 +1,10 @@
+#screen {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+body {
+    margin: 0;
+}
+.sprite {
+    width: 100%;
+}
