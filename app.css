@@ -5,17 +5,55 @@
   grid-template-columns: 100%;
   grid-template-rows: 100%;
 }
+#game {
+  grid-area: 1/ 1;
+  display: grid;
+  grid-template-columns: 10% / 10%;
+  grid-template-rows: 100%;
+}
+#game_background {
+  grid-area: 1 / 1;
+  background-image: url(images/townbackground.jpg);
+  background-size: cover;
+}
+#game_elements {
+  grid-area: 1 / 1;
+}
+#game_ui {
+  grid-area: 1 / 1;
+}
+#start {
+  grid-area: 1 / 1;
+}
+#gameover {
+  grid-area: 1 / 1;
+}
+#level_complete {
+  grid-area: 1 / 1;
+}
+#hp_img {
+  height: 10%;
+  width: 10%;
+}
+#hp2_img {
+  height: 10%;
+  width: 10%;
+}
+#hp3_img {
+  height: 10%;
+  width: 10%;
+}
+#kniv_container {
+  height: 15%;
+  width: 15%;
+}
 body {
-    margin: 0;
+  margin: 0;
 }
 img {
   width: 100%;
-
 }
 .sprite {
-    width: 100%;
-}
-#bloodknife.sprite {
- background-image: ;
+  width: 100%;
 }
 /* ease in på motorsave og knive? ellers på massakremanden */
