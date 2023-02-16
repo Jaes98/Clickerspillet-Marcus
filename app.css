@@ -1,19 +1,27 @@
+body {
+  margin: 0;
+}
+img {
+  width: 100%;
+}
 #screen {
   aspect-ratio: 16 / 9;
   width: 100%;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100%;
+  grid-template: 100% / 100%;
+  
 }
 #game {
   grid-area: 1/ 1;
   display: grid;
+  overflow: hidden;
+  position: relative;
   grid-template-columns: 10% / 10%;
   grid-template-rows: 100%;
 }
 #game_background {
   grid-area: 1 / 1;
-  background-image: url(images/townbackground.jpg);
+  background-image: url(images/townbackground.png);
   background-size: cover;
 }
 #game_elements {
@@ -44,18 +52,55 @@
   width: 5%;
 }
 #kniv_container {
-  height: 15%;
-  width: 15%;
+  height: 8%;
+  width: 8%;
   position: absolute;
 }
-body {
-  margin: 0;
+#sheriff_container {
+  height: 15%;
+  width: 15%;
+  z-index: 1;
 }
-img {
-  width: 100%;
-}
+
 .sprite {
   width: 100%;
 }
 /* ease in på motorsave og knive? ellers på massakremanden */
 /* lav pause på alle gameelements, kan findes i coinclicker mini, der skal så findes classes i container (og en "clicker" i img) */
+/* Animations */
+/* TRAVEL1 VIRKER */
+@keyframes travel1 {
+ 0% {
+  transform: translate(300%, -100%);
+ }
+ 100% {
+  transform: translate(300%, 150%);
+ }
+}
+.knivclick {
+  animation-name: travel1;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+/* TRAVEL1 VIRKER */
+/* KNIVCLICK VIRKER */
+@keyframes knivclick {
+  0% {
+    scale: 1;
+  }
+  30% {
+    scale: 1.4;
+  }
+  100% {
+    scale: 0;
+  }
+}
+.knivclick {
+  animation-name: kniv click;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  animation-iteration-count: 1  
+}
+/* KNIVCLICK VIRKER */
