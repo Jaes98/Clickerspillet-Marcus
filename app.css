@@ -46,6 +46,7 @@
 #kniv_container {
   height: 15%;
   width: 15%;
+  position: absolute;
 }
 body {
   margin: 0;
