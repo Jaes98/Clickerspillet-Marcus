@@ -41,16 +41,25 @@ img {
   grid-area: 1 / 1;
 }
 #hp_img {
-  height: 5%;
-  width: 5%;
+  position: absolute;
+  height: 7%;
+  width: 4%;
+  top: 15px;
+  left: 1280px;
 }
 #hp2_img {
-  height: 5%;
-  width: 5%;
+  position: absolute;
+  height: 7%;
+  width: 4%;
+  top: 15px;
+  left: 1230px;
 }
 #hp3_img {
-  height: 5%;
-  width: 5%;
+  position: absolute;
+  height: 7%;
+  width: 4%;
+  top: 15px;
+  left: 1180px;
 }
 #kniv_container {
   height: 6%;
@@ -58,14 +67,24 @@ img {
   position: absolute;
 }
 #sheriff_container {
+  position: absolute;
   height: 15%;
   width: 15%;
   z-index: 1;
+  animation-name: travel2;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+#massakremand_container {
+  position: absolute;
 }
 /* CLASSES */
 .sprite {
   width: 100%;
 }
+
 /* ease in på motorsave og knive? ellers på massakremanden */
 /* lav pause på alle gameelements, kan findes i coinclicker mini, der skal så findes classes i container (og en "clicker" i img) */
 
@@ -73,30 +92,30 @@ img {
 /* TRAVEL1 VIRKER */
 @keyframes travel1 {
  0% {
-  transform: translate(1200px, 600px);
+  transform: translate(1200px, 600px) rotate(0deg);
  }
  16% {
-  transform: translate(1200px, 400px);
+  transform: translate(1200px, 400px) rotate(60deg);
  }
  32% {
-  transform: translate(750px, 400px);
+  transform: translate(750px, 400px) rotate(120deg);
  }
  48% {
-  transform: translate(750px, 600px);
+  transform: translate(750px, 600px) rotate(180deg);
  }
  64% {
-  transform: translate(400px, 600px);
+  transform: translate(400px, 600px) rotate(240deg);
  }
  80% {
-  transform: translate(400px, 400px);
+  transform: translate(400px, 400px) rotate(300deg);
  }
  100% {
-  transform: translate(40px, 400px);
+  transform: translate(40px, 400px) rotate(360deg);
  }
 }
 #kniv_container {
   animation-name: travel1;
-  animation-duration: 5s;
+  animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -121,3 +140,34 @@ img {
   animation-iteration-count: 1  
 }
 /* KNIVCLICK VIRKER */
+@keyframes travel2 {
+  0% {
+    scale: 1;
+  transform: translate(1200px, 500px);
+ }
+ 16% {
+  scale: 0.8;
+  transform: translate(1200px, 350px);
+ }
+ 32% {
+  scale: 1.0;
+  transform: translate(750px, 350px);
+ }
+ 48% {
+  scale: 1.2;
+  transform: translate(750px, 500px);
+ }
+ 64% {
+  scale: 1.0;
+  transform: translate(400px, 500px);
+ }
+ 80% {
+  scale: 0.8;
+  transform: translate(400px, 350px);
+ }
+ 100% {
+  scale: 1;
+  transform: translate(40px, 350px);
+ }
+}
+/* IMPLEMENTER TIME BAR? */
