@@ -4,6 +4,7 @@ body {
 img {
   width: 100%;
 }
+/* ID's */
 #screen {
   aspect-ratio: 16 / 9;
   width: 100%;
@@ -52,8 +53,8 @@ img {
   width: 5%;
 }
 #kniv_container {
-  height: 8%;
-  width: 8%;
+  height: 6%;
+  width: 6%;
   position: absolute;
 }
 #sheriff_container {
@@ -61,25 +62,35 @@ img {
   width: 15%;
   z-index: 1;
 }
-
+/* CLASSES */
 .sprite {
   width: 100%;
 }
 /* ease in på motorsave og knive? ellers på massakremanden */
 /* lav pause på alle gameelements, kan findes i coinclicker mini, der skal så findes classes i container (og en "clicker" i img) */
+
 /* Animations */
 /* TRAVEL1 VIRKER */
 @keyframes travel1 {
  0% {
-  transform: translate(300%, -100%);
+  transform: translate(800%, 800%);
+ }
+ 25% {
+  transform: translate(1000%, 300%);
+ }
+ 50% {
+  transform: translate(700%, 300%);
+ }
+ 75% {
+  transform: translate(500%, 300%);
  }
  100% {
-  transform: translate(300%, 150%);
+  transform: translate(50%, 500%);
  }
 }
-.knivclick {
+#kniv_container {
   animation-name: travel1;
-  animation-duration: 2s;
+  animation-duration: 4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
