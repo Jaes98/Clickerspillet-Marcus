@@ -73,25 +73,31 @@ img {
 /* TRAVEL1 VIRKER */
 @keyframes travel1 {
  0% {
-  transform: translate(800%, 800%);
+  transform: translate(1200px, 600px);
  }
- 25% {
-  transform: translate(1000%, 300%);
+ 16% {
+  transform: translate(1200px, 400px);
  }
- 50% {
-  transform: translate(700%, 300%);
+ 32% {
+  transform: translate(750px, 400px);
  }
- 75% {
-  transform: translate(500%, 300%);
+ 48% {
+  transform: translate(750px, 600px);
+ }
+ 64% {
+  transform: translate(400px, 600px);
+ }
+ 80% {
+  transform: translate(400px, 400px);
  }
  100% {
-  transform: translate(50%, 500%);
+  transform: translate(40px, 400px);
  }
 }
 #kniv_container {
   animation-name: travel1;
-  animation-duration: 4s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 5s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 /* TRAVEL1 VIRKER */
