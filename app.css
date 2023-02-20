@@ -93,11 +93,36 @@ img {
   position: absolute;
   width: 32%;
   height: 32%;
+  animation-name: travel1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
 }
 #motorsav_container2 {
   position: absolute;
   width: 13%;
   height: 13%;
+  animation-name: travel1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+
+}
+#points_container {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top: 90%;
+  left: 45%;
+} 
+#progress {
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  top: 0%;
+  left: 5%;
 }
 /* CLASSES */
 .sprite {
@@ -108,6 +133,9 @@ img {
 /* lav pause på alle gameelements, kan findes i coinclicker mini, der skal så findes classes i container (og en "clicker" i img) */
 
 /* Animations */
+.paus ed {
+  animation-play-state: paused;
+}
 /* TRAVEL1 VIRKER */
 @keyframes travel1 {
  0% {
