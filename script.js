@@ -44,7 +44,7 @@ function displayPoints() {
 }
 
 function decrementLives() {
-    console.log("mist et liv");
+    console.log("mistet et liv");
     showDecrementedLives();
     lives--;
     if (lives <= 0) {
@@ -56,8 +56,27 @@ function incrementLives() {
     console.log("få et liv");
     lives++;
     showIncrementedLives();
-   
+}
 
+function showDecrementedLives() {
+  console.log("lives" + lives);
+  document.querySelector("#hp" + lives).classList.remove("active_heart");
+  document.querySelector("#hp" + lives).classList.add("broken_heart");
+}
+
+function showIncrementedLives() {
+  document.querySelector("#hp" + lives).classList.remove("broken_heart");
+  document.querySelector("#hp" + lives).classList.add("active_heart");
+}
+
+function gameOver() {
+  console.log("Game Over");
+  document.querySelector("#game_over").classList.remove("hidden");
+}
+function levelComplete() {
+  console.log("Level Complete");
+  document.querySelector("#level_complete").classList.remove("hidden");
+}
 function clickMS1() {
   console.log("klik Motorsav1");
   document
