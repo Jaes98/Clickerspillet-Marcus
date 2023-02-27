@@ -34,16 +34,16 @@ img {
 }
 #gameover {
   grid-area: 1 / 1;
-  z-index: 999;
   justify-content: center;
+  z-index: 1;
   align-content: center;
   background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
   color: #ffffff;
 }
 #level_complete {
   grid-area: 1 / 1;
-  z-index: 999;
   justify-content: center;
+  z-index: 1;
   align-content: center;
   background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
   color: #ffffff;
@@ -64,6 +64,9 @@ img {
 #point_count {
   white-space: nowrap;
   text-align: right;
+  color: white;
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
 }
 #point_img {
   width: 3.5em;
