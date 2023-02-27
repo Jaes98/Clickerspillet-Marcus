@@ -189,9 +189,9 @@ function sheriffGone() {
 
   document.querySelector("#bomb_container").classList.remove("paused");
 
-  document.querySelector("#sheriff_container").classList.remove("fadeaway");
+  document.querySelector("#sheriff_container").classList.remove("travel3");
   document.querySelector("#sheriff_container").offsetWidth;
-  document.querySelector("#sheriff_container").classList.add("fadeaway");
+  document.querySelector("#sheriff_container").classList.add("travel3");
 
 
   document
