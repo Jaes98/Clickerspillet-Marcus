@@ -10,7 +10,6 @@ img {
   width: 100%;
   display: grid;
   grid-template: 100% / 100%;
-  
 }
 #game {
   grid-area: 1/ 1;
@@ -27,160 +26,225 @@ img {
 }
 #game_elements {
   grid-area: 1 / 1;
-  position: relative
-}
-#game_ui {
-  grid-area: 1 / 1;
   position: relative;
 }
+
 #start {
   grid-area: 1 / 1;
 }
 #gameover {
   grid-area: 1 / 1;
+  z-index: 999;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
+  color: #ffffff;
 }
 #level_complete {
   grid-area: 1 / 1;
+  z-index: 999;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  color: #ffffff;
+}
+/* UI */
+#game_ui {
+  font-size: 2em;
+  top: 2vw;
+  right: 1vw;
+  position: absolute;
+  pointer-events: none;
+}
+#score_board {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.1em;
+}
+#point_count {
+  white-space: nowrap;
+  text-align: right;
+}
+#point_img {
+  width: 3.5em;
+}
+#life_board {
+  margin-block-start: 0.2em;
+  display: grid;
+  grid-template-columns: 1.2em 1.2em 1.2em;
 }
 #hp_img {
   position: absolute;
-  height: 7%;
-  width: 4%;
-  top: 15px;
-  left: 1280px;
+  height: 80%;
+  width: 30%;
+  top: 5%;
+  right: 40%;
 }
 #hp2_img {
   position: absolute;
-  height: 7%;
-  width: 4%;
-  top: 15px;
-  left: 1230px;
+  height: 80%;
+  width: 30%;
+  top: 5%;
+  right: 60%;
 }
 #hp3_img {
   position: absolute;
-  height: 7%;
-  width: 4%;
-  top: 15px;
-  left: 1180px;
+  height: 80%;
+  width: 30%;
+  top: 5%;
+  right: 80%;
 }
-#kniv_container {
-  height: 8%;
-  width: 8%;
+#points_container {
   position: absolute;
-  animation-name: travel1;
-  animation-duration: 7s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  width: 8%;
+  height: 8%;
+  top: 90%;
+  left: 40%;
 }
+/* game_elements */
 #sheriff_container {
   position: absolute;
   height: 15%;
   width: 15%;
+  top: 63%;
+  left: 85%;
   z-index: 2;
-  animation-name: travel2;
-  animation-iteration-count: infinite;
-  animation-duration: 8s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
 }
 #massakremand_container {
   position: absolute;
   width: 10%;
   height: 10%;
   z-index: 1;
-  top: 400px;
-  left: 1200px;
+  top: 55%;
+  left: 87%;
 }
 #motorsav_container1 {
   position: absolute;
-  width: 32%;
-  height: 32%;
-  animation-name: travel1;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-duration: 7s;
+  width: 30%;
+  height: 30%;
+  top: 63%;
+  left: 85%;
 }
 #motorsav_container2 {
   position: absolute;
   width: 13%;
   height: 13%;
-  animation-name: travel1;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-duration: 7s;
-
-}
-#points_container {
-  position: absolute;
-  width: 10%;
-  height: 10%;
-  top: 90%;
-  left: 45%;
-} 
-#progress {
-  position: absolute;
-  width: 15%;
-  height: 15%;
-  top: 0%;
-  left: 5%;
+  top: 20%;
+  left: 85%;
 }
 /* CLASSES */
 .sprite {
   width: 100%;
 }
+.active_heart {
+    filter: drop-shadow(0 0 2px yellow);
+}
+
+.broken_heart {
+    filter: grayscale(75%) blur(0.5px);
+}
 .paused {
   animation-play-state: paused;
 }
-.sprite {
-  animation-name: zoom away;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1  
+.hidden,
+#game_over.hidden #level_complete.hidden {
+  display: none;
 }
-.clicked {
-  animation-name: fadeaway;
-  animation-timing-function: ease-out;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-}
-.hpfadeaway {
-  animation-name: hpfade;
-  animation-timing-function: linear;
-  animation-duration: 0.2s;
-  animation-fill-mode: forwards;
-}
-/* lav pause på alle gameelements, kan findes i coinclicker mini, der skal så findes classes i container (og en "clicker" i img) */
 
 /* Animations */
-
-/* TRAVEL1 VIRKER */
-@keyframes travel1 {
- 0% {
-  transform: translate() rotate(0deg);
- }
- 16% {
-  transform: translate() rotate(60deg);
- }
- 32% {
-  transform: translate() rotate(120deg);
- }
- 48% {
-  transform: translate() rotate(180deg);
- }
- 64% {
-  transform: translate() rotate(240deg);
- }
- 80% {
-  transform: translate() rotate(300deg);
- }
- 100% {
-  transform: translate() rotate(360deg);
- }
+.travel1 {
+  animation-name: travel1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
 }
-/* TRAVEL1 VIRKER */
-/* KNIVCLICK VIRKER */
+@keyframes travel1 {
+  0% {
+    transform: translate(-10%, 50%) rotate(0deg);
+  }
+  20% {
+    transform: translate(-120%, 50%) rotate(60deg);
+  }
+  40% {
+    transform: translate(-120%, -30%) rotate(120deg);
+  }
+  60% {
+    transform: translate(-220%, -30%) rotate(180deg);
+  }
+  80% {
+    transform: translate(-220%, 50%) rotate(240deg);
+  }
+  100% {
+    transform: translate(-320%, 50%) rotate(360deg);
+  }
+}
+.travel2 {
+  animation-name: travel2;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes travel2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-85vw, 0);
+  }
+}
+.travel3 {
+  animation-name: travel3;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes travel3 {
+  0% {
+    scale: 1;
+    transform: translateX(0);
+  }
+  25% {
+    scale: 1.2;
+    transform: translateX(-20vw);
+  }
+  50% {
+    scale: 0.8;
+    transform: translateX(-40vw);
+  }
+  75% {
+    scale: 1.2;
+    transform: translateX(-60vw);
+  }
+  100% {
+    scale: 1;
+    transform: translateX(-75vw);
+  }
+}
+.travel4 {
+  animation-name: travel4;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 7s;
+}
+@keyframes travel4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-70vw, 0);
+  }
+}
+.zoomaway {
+  animation-name: zoomaway;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
 @keyframes zoomaway {
   0% {
     scale: 1;
@@ -192,7 +256,12 @@ img {
     scale: 0;
   }
 }
-/* KNIVCLICK VIRKER */
+.fadeaway {
+  animation-name: fadeaway;
+  animation-timing-function: ease-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
 @keyframes fadeaway {
   0% {
     opacity: 1;
@@ -203,49 +272,4 @@ img {
     rotate: 360deg;
   }
 }
-@keyframes hpfade {
-  0% {
-    opacity: 1;
-    transform: grayscale(0%);
-  }
-  100% {
-    opacity: 0.5;
-    transform: grayscale(100%);
-  }
-}
-@keyframes travel2 {
-  0% {
-    scale: 1;
-  transform: translate();
- }
- 16% {
-  scale: 0.8;
-  transform: translate();
- }
- 32% {
-  scale: 1.2;
-  transform: translate();
- }
- 48% {
-  scale: 0.8;
-  transform: translate();
- }
- 64% {
-  scale: 1.2;
-  transform: translate();
- }
- 80% {
-  scale: 0.8;
-  transform: translate();
- }
- 100% {
-  scale: 1.2;
-  transform: translate();
- }
-}
-@keyframes travel3 {
-  0% {
-    transform: translate(1200%, 500%);
-  }
-}
-/* IMPLEMENTER TIME BAR? */
+
