@@ -216,7 +216,7 @@ function clickMassakremand() {
     .querySelector("#massakremand_container")
     .addEventListener("animationend", massakremandGone);
 
-  decrementLives(3);
+  decrementLives();
 }
 function massakremandGone() {
 
@@ -227,11 +227,11 @@ function massakremandGone() {
   document.querySelector("#massakremand_sprite").classList.remove("fadeaway");
 
 
-  document.querySelector("#heart_container").classList.remove("paused");
+  document.querySelector("#massakremand_container").classList.remove("paused");
 
-  document.querySelector("#heart_container").classList.remove("fadeaway");
-  document.querySelector("#heart_container").offsetWidth;
-  document.querySelector("#heart_container").classList.add("fadeaway");
+  document.querySelector("#massakremand_container").classList.remove("travel4");
+  document.querySelector("#massakremand_container").offsetWidth;
+  document.querySelector("#massakremand_container").classList.add("travel4");
 
   document
     .querySelector("#massakremand_container")
