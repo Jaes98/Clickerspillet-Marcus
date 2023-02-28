@@ -37,7 +37,7 @@ function incrementPoints() {
     points++;
     console.log(points + " point opnået");
     displayPoints();
-    if (points > 15) {
+    if (points > 10) {
         levelComplete()
     }
 }
