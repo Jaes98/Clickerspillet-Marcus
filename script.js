@@ -51,6 +51,7 @@ function visStartSkærm() {
     document.querySelector("#start").classList.remove("hidden");
     document.querySelector("#game_over").classList.add("hidden");
     document.querySelector("#level_complete").classList.add("hidden");
+    stopGame();
 }
 // LIV OG POINT
 function resetLiv() {
@@ -119,10 +120,12 @@ function visgivLiv() {
 function gameOver() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
+  stopGame();
 }
 function levelComplete() {
   console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+  stopGame();
 }
 // CLICK EVENTS
 function clickMS1() {
@@ -240,4 +243,6 @@ function stopGame() {
     document
       .querySelector("#massakremand_container")
       .removeEventListener("click", clickMassakremand);
+
+    //   tilføj musik stop
 }
