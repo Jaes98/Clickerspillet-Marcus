@@ -4,6 +4,8 @@ window.addEventListener("load", start)
 let point = 0;
 let liv = 0;
 
+function ready()
+
 function start() {
     console.log("start");
     point = 0;
@@ -33,7 +35,7 @@ function tilføjKlik() {
 }
 function visSpilSkærm() {
   console.log("Spilskærm vises");
-  document.querySelector("#startskærm").classList.add("hidden");
+  document.querySelector("#start").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 }
