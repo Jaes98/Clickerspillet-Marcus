@@ -1,13 +1,13 @@
 "use strict";
 window.addEventListener("load", start)
 
-let points = 0;
-let lives = 0;
+let point = 0;
+let liv = 0;
 
 function start() {
     console.log("start");
-    points = 0;
-    lives = 3;
+    point = 0;
+    liv = 3;
     startAnimation()
     tilføjKlik()
 }
@@ -31,48 +31,58 @@ function tilføjKlik() {
        .querySelector("#massakremand_container")
        .addEventListener("click", clickMassakremand);
 }
+function visSpilSkærm() {
+  console.log("Spilskærm vises");
+  document.querySelector("#startskærm").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
 
-function incrementPoints() {
+function givPoint() {
     console.log("Du har fået et point");
-    points++;
-    console.log(points + " point opnået");
-    displayPoints();
-    if (points > 10) {
+    point++;
+    console.log(point + " point opnået");
+    visPoint();
+    if (point > 10) {
         levelComplete()
     }
 }
 
-function displayPoints() {
+function visPoint() {
     console.log("vis point");
-    document.querySelector("#point_count").textContent = points;
+    document.querySelector("#point_count").textContent = point;
 }
 
-function decrementLives() {
+function mistLiv() {
     console.log("mistet et liv");
-    showDecrementedLives();
-    lives--;
-    if (lives <= 0) {
-        gameOver()
-    }
+    vismistLiv();
+    liv--;
+    if (liv <= 0) {
+     gameOver();
+   }
 }
 
-function incrementLives() {
+function givLiv() {
     console.log("få et liv");
-    lives++;
-    showIncrementedLives();
+    liv++;
+    visgivLiv();
 }
 
-function showDecrementedLives() {
-  console.log("lives" + lives);
-  let hp = document.querySelector("#hp" + lives);
+function vismistLiv() {
+  console.log("lives" + liv);
+  let hp = document.querySelector("#hp" + liv);
   hp.classList.remove("active_heart");
   hp.classList.add("broken_heart");
+   
 }
 
-function showIncrementedLives() {
-    let hp = document.querySelector("#hp" + lives);
+function visgivLiv() {
+    let hp = document.querySelector("#hp" + liv);
     hp.classList.remove("broken_heart");
     hp.classList.add("active_heart");
+     if (liv <= 0) {
+       gameOver();
+     }
 }
 
 function gameOver() {
@@ -91,7 +101,7 @@ function clickMS1() {
   motorsav1.querySelector("img").classList.add("zoomaway");
   motorsav1.addEventListener("animationend", motorsav1Gone);
 
-  incrementPoints();
+  givPoint();
 }
 function motorsav1Gone() {
 console.log("motorsav1gone")
@@ -115,7 +125,7 @@ function clickMS2() {
   motorsav2.querySelector("img").classList.add("zoomaway");
   motorsav2.addEventListener("animationend", motorsav2Gone);
 
-  incrementPoints();
+  givPoint();
 }
 function motorsav2Gone() {
     console.log("motorsav2 væk");
@@ -139,7 +149,7 @@ function clickSheriff() {
   sheriff.querySelector("img").classList.add("fadeaway");
   sheriff.addEventListener("animationend", sheriffGone);
 
-  decrementLives();
+  mistLiv();
 
 }
 function sheriffGone() {
@@ -165,7 +175,7 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.querySelector("img").classList.add("fadeaway");
   massakre.addEventListener("animationend", massakremandGone);
 
-  decrementLives();
+  mistLiv();
 }
 function massakremandGone() {
 console.log("massakremand gone")
@@ -180,3 +190,5 @@ let massakre = document.querySelector("#massakremand_container");
 
   massakre.addEventListener("click", clickMassakremand);
 }
+
+// lav en stopSpil() aka stop alle animationer

@@ -32,7 +32,7 @@ img {
 #start {
   grid-area: 1 / 1;
 }
-#gameover {
+#game_over {
   grid-area: 1 / 1;
   justify-content: center;
   z-index: 1;
@@ -76,21 +76,21 @@ img {
   display: grid;
   grid-template-columns: 1.2em 1.2em 1.2em;
 }
-#hp_img {
+#hp1 {
   position: absolute;
   height: 80%;
   width: 30%;
   top: 5%;
   right: 40%;
 }
-#hp2_img {
+#hp2 {
   position: absolute;
   height: 80%;
   width: 30%;
   top: 5%;
   right: 60%;
 }
-#hp3_img {
+#hp3 {
   position: absolute;
   height: 80%;
   width: 30%;
@@ -150,7 +150,9 @@ img {
   animation-play-state: paused;
 }
 .hidden,
-#game_over.hidden #level_complete.hidden {
+#game_over.hidden 
+#level_complete.hidden 
+#startskærm.hidden {
   display: none;
 }
 
