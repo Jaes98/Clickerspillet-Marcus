@@ -10,7 +10,7 @@ document.querySelector("#btn_start").addEventListener("click", startGame);
 document.querySelector("#btn_go_to_start").addEventListener("click", visStartSkærm);
 document.querySelector("#btn_restart").addEventListener("click", startGame);
 }
-
+// START OG GENSTART SPIL
 function startGame() {
     console.log("start");
     resetPoint();
@@ -52,6 +52,7 @@ function visStartSkærm() {
     document.querySelector("#game_over").classList.add("hidden");
     document.querySelector("#level_complete").classList.add("hidden");
 }
+// LIV OG POINT
 function resetLiv() {
   liv = 3;
   document.querySelector("#hp1").classList.remove("broken_heart");
@@ -74,12 +75,10 @@ function givPoint() {
         levelComplete()
     }
 }
-
 function visPoint() {
     console.log("vis point");
     document.querySelector("#point_count").textContent = point;
 }
-
 function mistLiv() {
     console.log("mistet et liv");
     vismistLiv();
@@ -88,13 +87,19 @@ function mistLiv() {
      gameOver();
    }
 }
-
+function mist3Liv() {
+    console.log("mistet 3 liv");
+    vismistLiv();
+    liv-= 3;
+    if (liv <= 0) {
+        gameOver();
+    }
+}
 function givLiv() {
     console.log("få et liv");
     liv++;
     visgivLiv();
 }
-
 function vismistLiv() {
   console.log("lives" + liv);
   let hp = document.querySelector("#hp" + liv);
@@ -102,7 +107,6 @@ function vismistLiv() {
   hp.classList.add("broken_heart");
    
 }
-
 function visgivLiv() {
     let hp = document.querySelector("#hp" + liv);
     hp.classList.remove("broken_heart");
@@ -111,7 +115,7 @@ function visgivLiv() {
        gameOver();
      }
 }
-
+// GAMEOVER OG LEVELCOMPLETE
 function gameOver() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
@@ -120,6 +124,7 @@ function levelComplete() {
   console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
 }
+// CLICK EVENTS
 function clickMS1() {
   console.log("klik Motorsav1");
   let motorsav1 = document.querySelector("#motorsav_container1");
@@ -143,7 +148,6 @@ let motorsav1 = document.querySelector("#motorsav_container1");
 
   motorsav1.addEventListener("click", clickMS1);
 }
-
 function clickMS2() {
   console.log("klik Motorsav2");
   let motorsav2 = document.querySelector("#motorsav_container2");
@@ -193,7 +197,6 @@ let sheriff = document.querySelector("#sheriff_container");
 
   sheriff.addEventListener("click", clickSheriff);
 }
-
 function clickMassakremand() {
   console.log("klik bomb");
 let massakre = document.querySelector("#massakremand_container");
@@ -201,8 +204,8 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.classList.add("paused");
   massakre.querySelector("img").classList.add("fadeaway");
   massakre.addEventListener("animationend", massakremandGone);
-
-  mistLiv();
+    
+givPoint();
 }
 function massakremandGone() {
 console.log("massakremand gone")
@@ -217,5 +220,24 @@ let massakre = document.querySelector("#massakremand_container");
 
   massakre.addEventListener("click", clickMassakremand);
 }
+// STOPGAME
+function stopGame() {
+    console.log("spil stoppet");
+    document.querySelector("#motorsav_container1").classList.remove("travel1");
+    document.querySelector("#motorsav_container2").classList.remove("travel2");
+    document.querySelector("#sheriff_container").classList.remove("travel3");
+    document.querySelector("#massakremand_container").classList.remove("travel4");
 
-// lav en stopSpil() aka stop alle animationer
+    document
+      .querySelector("#motorsav_container1")
+      .removeEventListener("click", clickMS1);
+    document
+      .querySelector("#motorsav_container2")
+      .removeEventListener("click", clickMS2);
+    document
+      .querySelector("#sheriff_container")
+      .removeEventListener("click", clickSheriff);
+    document
+      .querySelector("#massakremand_container")
+      .removeEventListener("click", clickMassakremand);
+}
