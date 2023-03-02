@@ -8,6 +8,7 @@ function ready() {
 console.log("Javascript ready");
 document.querySelector("#btn_start").addEventListener("click", startGame);
 document.querySelector("#btn_go_to_start").addEventListener("click", visStartSkærm);
+document.querySelector("#btn_restart").addEventListener("click", startGame);
 }
 
 function startGame() {
