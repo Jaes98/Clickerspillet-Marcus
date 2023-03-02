@@ -1,9 +1,19 @@
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 img {
   width: 100%;
 }
+h2 {
+  text-align: center;
+  font-size: 4em;
+}
+p {
+  text-align: center;
+  font-size: 1.5em;
+}
+
 /* ID's */
 #screen {
   aspect-ratio: 16 / 9;
@@ -29,14 +39,7 @@ img {
   position: relative;
 }
 
-#start {
-  grid-area: 1 / 1;
-  z-index: 1;
-  justify-content: center;
-  align-content: center;
-  color: black;
-  background-color: white;
-}
+
 #game_over {
   grid-area: 1 / 1;
   z-index: 1;
@@ -45,7 +48,8 @@ img {
   background-image: linear-gradient(150deg, #c90303 0%, #790909 100%);
   color: #ffffff;
 }
-#level_complete {
+#level_complete,
+#start {
   grid-area: 1 / 1;
   z-index: 1;
   justify-content: center;

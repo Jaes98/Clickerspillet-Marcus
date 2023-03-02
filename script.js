@@ -7,15 +7,16 @@ let liv = 0;
 function ready() {
 console.log("Javascript ready");
 document.querySelector("#btn_start").addEventListener("click", startGame);
+document.querySelector("#btn_go_to_start").addEventListener("click", visStartSkærm);
 }
 
 function startGame() {
     console.log("start");
-    point = 0;
-    liv = 3;
-    startAnimation()
-    tilføjKlik()
-    visSpilSkærm()
+    resetPoint();
+    resetLiv();
+    startAnimation();
+    tilføjKlik();
+    visSpilSkærm();
 }
 function startAnimation() {
     document.querySelector("#motorsav_container1").classList.add("travel1");
@@ -44,7 +45,25 @@ function visSpilSkærm() {
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 }
-
+function visStartSkærm() {
+    console.log("Vis Start Skærm");
+    document.querySelector("#start").classList.remove("hidden");
+    document.querySelector("#game_over").classList.add("hidden");
+    document.querySelector("#level_complete").classList.add("hidden");
+}
+function resetLiv() {
+  liv = 3;
+  document.querySelector("#hp1").classList.remove("broken_heart");
+  document.querySelector("#hp2").classList.remove("broken_heart");
+  document.querySelector("#hp3").classList.remove("broken_heart");
+  document.querySelector("#hp1").classList.add("active_heart");
+  document.querySelector("#hp2").classList.add("active_heart");
+  document.querySelector("#hp3").classList.add("active_heart");
+}
+function resetPoint() {
+  point = 0;
+  visPoint();
+}
 function givPoint() {
     console.log("Du har fået et point");
     point++;
