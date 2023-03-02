@@ -119,7 +119,7 @@ function clickMS2() {
 }
 function motorsav2Gone() {
     console.log("motorsav2 væk");
-    let motorsav2 = document.querySelector("motorsav_container2");
+    let motorsav2 = document.querySelector("#motorsav_container2");
   motorsav2.removeEventListener("animationend", motorsav2Gone);
   motorsav2.querySelector("img").classList.remove("zoomaway");
   motorsav2.classList.remove("paused");

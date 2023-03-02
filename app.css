@@ -111,13 +111,13 @@ img {
   width: 15%;
   top: 63%;
   left: 85%;
-  z-index: 2;
+ 
 }
 #massakremand_container {
   position: absolute;
   width: 10%;
   height: 10%;
-  z-index: 1;
+ 
   top: 55%;
   left: 87%;
 }
