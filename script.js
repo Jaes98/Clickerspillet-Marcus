@@ -91,7 +91,7 @@ function mistLiv() {
 function mist3Liv() {
     console.log("mistet 3 liv");
     vismistLiv();
-    liv-= 3;
+    liv=-3;
     if (liv <= 0) {
         gameOver();
     }
