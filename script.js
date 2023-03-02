@@ -1,17 +1,21 @@
 "use strict";
-window.addEventListener("load", start)
+window.addEventListener("load", ready)
 
 let point = 0;
 let liv = 0;
 
-function ready()
+function ready() {
+console.log("Javascript ready");
+document.querySelector("#btn_start").addEventListener("click", startGame);
+}
 
-function start() {
+function startGame() {
     console.log("start");
     point = 0;
     liv = 3;
     startAnimation()
     tilføjKlik()
+    visSpilSkærm()
 }
 function startAnimation() {
     document.querySelector("#motorsav_container1").classList.add("travel1");
@@ -35,6 +39,7 @@ function tilføjKlik() {
 }
 function visSpilSkærm() {
   console.log("Spilskærm vises");
+  document.querySelector("#game").classList.remove("hidden");
   document.querySelector("#start").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
