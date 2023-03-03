@@ -6,9 +6,7 @@ let liv = 0;
 
 function ready() {
 console.log("Javascript ready");
-document.querySelector("#btn_start").addEventListener("click", startGame);
-document.querySelector("#btn_go_to_start").addEventListener("click", visStartSkærm);
-document.querySelector("#btn_restart").addEventListener("click", startGame);
+buttonClick();
 }
 // START OG GENSTART SPIL
 function startGame() {
@@ -52,6 +50,11 @@ function visStartSkærm() {
     document.querySelector("#game_over").classList.add("hidden");
     document.querySelector("#level_complete").classList.add("hidden");
     stopGame();
+}
+function buttonClick() {
+    document.querySelector("#btn_start").addEventListener("click", startGame);
+    document.querySelector("#btn_go_to_start").addEventListener("click", visStartSkærm);
+    document.querySelector("#btn_restart").addEventListener("click", startGame);
 }
 // LIV OG POINT
 function resetLiv() {
@@ -199,6 +202,9 @@ let sheriff = document.querySelector("#sheriff_container");
 
 
   sheriff.addEventListener("click", clickSheriff);
+  if (lives < 3) {
+    givLiv();
+  }
 }
 function clickMassakremand() {
   console.log("klik bomb");
@@ -209,6 +215,7 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.addEventListener("animationend", massakremandGone);
     
 givPoint();
+
 }
 function massakremandGone() {
 console.log("massakremand gone")
