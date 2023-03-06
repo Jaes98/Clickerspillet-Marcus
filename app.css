@@ -341,3 +341,23 @@ opacity: 0;
   opacity: 1;
 }
 }
+.timershrink {
+  animation-name: timershrink;
+  animation-duration: 90s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes timershrink {
+0% {
+scale: 1 1;
+background-color: green;
+}
+50% {
+  background-color: yellow;
+}
+100% {
+  scale: 1 0;
+  background-color: darkred;
+}
+}
