@@ -282,10 +282,11 @@ button {
 }
 .travel4 {
   animation-name: travel4;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  animation-duration: 7s;
+  animation-duration: 8s;
+  animation-delay: 1s;
 }
 @keyframes travel4 {
   0% {

@@ -24,6 +24,7 @@ function startAnimation() {
     document.querySelector("#motorsav_container2").classList.add("travel2");
     document.querySelector("#sheriff_container").classList.add("travel3");
     document.querySelector("#massakremand_container").classList.add("travel4");
+    document.querySelector("#massakremand_container").addEventListener("animationiteration", massakreMandEnd)
 }
 
 function tilføjKlik() {
@@ -266,11 +267,11 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.addEventListener("click", clickMassakremand);
   
 }
-// function massakreMandEnd() {
-//     console.log("massakreMandEnd: mist 3 liv");
-//     mist3Liv();
-//     console.log(liv);
-// }
+function massakreMandEnd() {
+    console.log("massakreMandEnd: mist 3 liv");
+    mist3Liv();
+    console.log(liv);
+}
 // STOPGAME
 function stopGame() {
     console.log("spil stoppet");
