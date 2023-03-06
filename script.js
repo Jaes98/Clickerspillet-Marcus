@@ -13,6 +13,7 @@ function startGame() {
     console.log("start");
     resetPoint();
     resetLiv();
+    document.querySelector("#sound_background").volume = 0.3;
     document.querySelector("#sound_background").play();
     startAnimation();
     tilføjKlik();
@@ -144,13 +145,16 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("fadein");
   stopGame();
+  document.querySelector("#sound_gameover").volume = 0.3;
   document.querySelector("#sound_gameover").play();
+  Audio
 }
 function levelComplete() {
   console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#level_complete").classList.add("fadein");
   stopGame();
+  document.querySelector("#sound_levelcomplete").volume = 0.3;
   document.querySelector("#sound_levelcomplete").play();
 }
 // CLICK EVENTS
@@ -162,8 +166,8 @@ function clickMS1() {
   motorsav1.querySelector("img").classList.add("zoomaway");
   motorsav1.addEventListener("animationend", motorsav1Gone);
 
+  document.querySelector("#sound_ms1").volume = 0.3;
   document.querySelector("#sound_ms1").currentTime = 0;
-  // Afspil mønt-lyd
   document.querySelector("#sound_ms1").play();
 
   givPoint();
@@ -189,8 +193,8 @@ function clickMS2() {
   motorsav2.querySelector("img").classList.add("zoomaway");
   motorsav2.addEventListener("animationend", motorsav2Gone);
 
+  document.querySelector("#sound_ms2").volume = 0.3;
   document.querySelector("#sound_ms2").currentTime = 0;
-  // Afspil mønt-lyd
   document.querySelector("#sound_ms2").play();
 
   givPoint();
@@ -217,6 +221,7 @@ function clickSheriff() {
   sheriff.querySelector("img").classList.add("fadeaway");
   sheriff.addEventListener("animationend", sheriffGone);
 
+  document.querySelector("#sound_sheriff").volume = 0.3;
   document.querySelector("#sound_sheriff").currentTime = 0;
   document.querySelector("#sound_sheriff").play();
 
@@ -248,6 +253,7 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.querySelector("img").classList.add("fadeaway");
   massakre.addEventListener("animationend", massakremandGone);
 
+  document.querySelector("#sound_massakremand").volume = 0.3;
   document.querySelector("#sound_massakremand").currentTime = 0;
   document.querySelector("#sound_massakremand").play();
   
@@ -292,7 +298,13 @@ function stopGame() {
     document
       .querySelector("#massakremand_container")
       .removeEventListener("click", clickMassakremand);
-      
+    
+    document.querySelector("#sound_ms1").pause();
+    document.querySelector("#sound_ms2").pause();
+    document.querySelector("#sound_sheriff").pause();
+    document.querySelector("#sound_massakremand").pause();
+    document.querySelector("#sound_levelcomplete").pause();
+    document.querySelector("#sound_gameover").pause();
     document.querySelector("#sound_background").pause();
     document.querySelector("#sound_background").currentTime = 0;
 
