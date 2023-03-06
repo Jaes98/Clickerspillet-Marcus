@@ -13,6 +13,7 @@ function startGame() {
     console.log("start");
     resetPoint();
     resetLiv();
+    document.querySelector("#sound_background").play();
     startAnimation();
     tilføjKlik();
     visSpilSkærm();
@@ -23,6 +24,7 @@ function startAnimation() {
     document.querySelector("#sheriff_container").classList.add("travel3");
     document.querySelector("#massakremand_container").classList.add("travel4");
 }
+
 function tilføjKlik() {
      document
        .querySelector("#motorsav_container1")
@@ -105,7 +107,7 @@ function givLiv() {
     visgivLiv();
 }
 function vismistLiv() {
-  console.log("lives" + liv);
+  console.log("liv" + liv);
   let hp = document.querySelector("#hp" + liv);
   hp.classList.remove("active_heart");
   hp.classList.add("broken_heart");
@@ -125,12 +127,14 @@ function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("fadein");
   stopGame();
+  document.querySelector("#sound_gameover").play();
 }
 function levelComplete() {
   console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#level_complete").classList.add("fadein");
   stopGame();
+  document.querySelector("#sound_levelcomplete").play();
 }
 // CLICK EVENTS
 function clickMS1() {
@@ -140,6 +144,10 @@ function clickMS1() {
   motorsav1.classList.add("paused");
   motorsav1.querySelector("img").classList.add("zoomaway");
   motorsav1.addEventListener("animationend", motorsav1Gone);
+
+  document.querySelector("#sound_ms1").currentTime = 0;
+  // Afspil mønt-lyd
+  document.querySelector("#sound_ms1").play();
 
   givPoint();
 }
@@ -163,6 +171,10 @@ function clickMS2() {
   motorsav2.classList.add("paused");
   motorsav2.querySelector("img").classList.add("zoomaway");
   motorsav2.addEventListener("animationend", motorsav2Gone);
+
+  document.querySelector("#sound_ms2").currentTime = 0;
+  // Afspil mønt-lyd
+  document.querySelector("#sound_ms2").play();
 
   givPoint();
 }
@@ -188,6 +200,9 @@ function clickSheriff() {
   sheriff.querySelector("img").classList.add("fadeaway");
   sheriff.addEventListener("animationend", sheriffGone);
 
+  document.querySelector("#sound_sheriff").currentTime = 0;
+  document.querySelector("#sound_sheriff").play();
+
   mistLiv();
 
 }
@@ -204,21 +219,22 @@ let sheriff = document.querySelector("#sheriff_container");
 
 
   sheriff.addEventListener("click", clickSheriff);
-  if (lives < 3) {
+  if (liv > 3) {
     givLiv();
   }
 }
 function clickMassakremand() {
-  console.log("klik bomb");
+  console.log("klik massakremand");
 let massakre = document.querySelector("#massakremand_container");
   massakre.removeEventListener("click", clickMassakremand);
   massakre.classList.add("paused");
   massakre.querySelector("img").classList.add("fadeaway");
-//   massakre.addEventListener("animationiteration", mist3Liv());
   massakre.addEventListener("animationend", massakremandGone);
-    
-givPoint();
 
+  document.querySelector("#sound_massakremand").currentTime = 0;
+  document.querySelector("#sound_masskaremand").play();
+  
+  givPoint();
 }
 function massakremandGone() {
 console.log("massakremand gone")
@@ -230,12 +246,15 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.classList.remove("travel4");
   massakre.offsetWidth;
   massakre.classList.add("travel4");
- 
-//   massakre.addEventListener("animationiteration", mist3Liv());
 
   massakre.addEventListener("click", clickMassakremand);
-
+  
 }
+// function massakreMandEnd() {
+//     console.log("massakreMandEnd: mist 3 liv");
+//     mist3Liv();
+//     console.log(liv);
+// }
 // STOPGAME
 function stopGame() {
     console.log("spil stoppet");
@@ -256,6 +275,7 @@ function stopGame() {
     document
       .querySelector("#massakremand_container")
       .removeEventListener("click", clickMassakremand);
-
-    //   tilføj musik stop
+      
+    document.querySelector("#sound_background").pause();
+    document.querySelector("#sound_background").currentTime = 0;
 }
