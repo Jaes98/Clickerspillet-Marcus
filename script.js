@@ -17,6 +17,7 @@ function startGame() {
     startAnimation();
     tilføjKlik();
     visSpilSkærm();
+    startTimer();
 }
 function startAnimation() {
     document.querySelector("#motorsav_container1").classList.add("travel1");
@@ -58,6 +59,21 @@ function buttonClick() {
     document.querySelector("#btn_go_to_start").addEventListener("click", visStartSkærm);
     document.querySelector("#btn_restart").addEventListener("click", startGame);
 }
+// TIMER
+function startTimer() {
+    document.querySelector("#time_sprite").classList.add("timershrink");
+    document
+      .querySelector("#time_sprite")
+      .addEventListener("animationend", timerDone);
+}
+function timerDone() {
+    console.log("Times up!")
+    if (point >= 10) {
+        levelComplete();
+    } else {
+        gameOver();
+    }
+}
 // LIV OG POINT
 function resetLiv() {
   liv = 3;
@@ -77,7 +93,7 @@ function givPoint() {
     point++;
     console.log(point + " point opnået");
     visPoint();
-    if (point > 10) {
+    if (point >= 10) {
         levelComplete()
     }
 }
@@ -232,7 +248,7 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.addEventListener("animationend", massakremandGone);
 
   document.querySelector("#sound_massakremand").currentTime = 0;
-  document.querySelector("#sound_masskaremand").play();
+  document.querySelector("#sound_massakremand").play();
   
   givPoint();
 }
@@ -278,4 +294,6 @@ function stopGame() {
       
     document.querySelector("#sound_background").pause();
     document.querySelector("#sound_background").currentTime = 0;
+
+    document.querySelector("#time_sprite").classList.remove("timershrink");
 }
