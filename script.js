@@ -123,11 +123,13 @@ function visgivLiv() {
 function gameOver() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("fadein");
   stopGame();
 }
 function levelComplete() {
   console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.add("fadein");
   stopGame();
 }
 // CLICK EVENTS
@@ -212,6 +214,7 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.removeEventListener("click", clickMassakremand);
   massakre.classList.add("paused");
   massakre.querySelector("img").classList.add("fadeaway");
+//   massakre.addEventListener("animationiteration", mist3Liv());
   massakre.addEventListener("animationend", massakremandGone);
     
 givPoint();
@@ -227,8 +230,11 @@ let massakre = document.querySelector("#massakremand_container");
   massakre.classList.remove("travel4");
   massakre.offsetWidth;
   massakre.classList.add("travel4");
+ 
+//   massakre.addEventListener("animationiteration", mist3Liv());
 
   massakre.addEventListener("click", clickMassakremand);
+
 }
 // STOPGAME
 function stopGame() {
