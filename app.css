@@ -9,11 +9,13 @@ h2 {
   text-align: center;
   font-size: 3.5em;
   border-radius: 5px;
+  color: darkred;
 }
 p {
   text-align: center;
   font-size: 1em;
   position: relative;
+  color: black;
 }
 button {
     position: absolute;
@@ -64,8 +66,7 @@ button {
 /* LAV DARK SOUL TEMA? */
 
 }
-#level_complete,
-#start {
+#level_complete {
   display: grid;
   grid-area: 1 / 1;
   z-index: 999;
@@ -75,6 +76,17 @@ button {
   align-content: center;
   /* background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%); */
   color: darkred;
+  font-weight: 700;
+}
+#start {
+  display: grid;
+  grid-area: 1 / 1;
+  z-index: 999;
+  background-image: url(images/startskærm.jpg);
+  background-size: cover;
+  justify-content: center;
+  align-content: center;
+  /* background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%); */
   font-weight: 700;
 }
 /* UI */
