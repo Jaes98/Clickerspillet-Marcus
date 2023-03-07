@@ -44,6 +44,7 @@ button {
   position: relative;
   grid-template-columns: 10% / 10%;
   grid-template-rows: 100%;
+  user-select: none;
 }
 #game_background {
   grid-area: 1 / 1;
@@ -198,6 +199,9 @@ button {
   top: 20%;
   left: 85%;
 }
+#youdied {
+  color: white;
+}
 /* CLASSES */
 .sprite {
   width: 100%;
@@ -226,7 +230,7 @@ button {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  animation-duration: 6s;
+  animation-duration: 4s;
 }
 @keyframes travel1 {
   0% {
@@ -251,7 +255,7 @@ button {
 .travel2 {
   animation-name: travel2;
   animation-iteration-count: infinite;
-  animation-duration: 4s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
 }
@@ -297,7 +301,7 @@ button {
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  animation-duration: 8s;
+  animation-duration: 6.5s;
   animation-delay: 1s;
 }
 @keyframes travel4 {
