@@ -13,7 +13,7 @@ function startGame() {
     console.log("start");
     resetPoint();
     resetLiv();
-    document.querySelector("#sound_background").volume = 0.3;
+    document.querySelector("#sound_background").volume = 0.1;
     document.querySelector("#sound_background").play();
     startAnimation();
     tilføjKlik();
@@ -119,25 +119,12 @@ function mist3Liv() {
         gameOver();
     }
 }
-function givLiv() {
-    console.log("få et liv");
-    liv++;
-    visgivLiv();
-}
 function vismistLiv() {
   console.log("liv" + liv);
   let hp = document.querySelector("#hp" + liv);
   hp.classList.remove("active_heart");
   hp.classList.add("broken_heart");
    
-}
-function visgivLiv() {
-    let hp = document.querySelector("#hp" + liv);
-    hp.classList.remove("broken_heart");
-    hp.classList.add("active_heart");
-     if (liv <= 0) {
-       gameOver();
-     }
 }
 // GAMEOVER OG LEVELCOMPLETE
 function gameOver() {
@@ -166,7 +153,7 @@ function clickMS1() {
   motorsav1.querySelector("img").classList.add("zoomaway");
   motorsav1.addEventListener("animationend", motorsav1Gone);
 
-  document.querySelector("#sound_ms1").volume = 0.3;
+  document.querySelector("#sound_ms1").volume = 0.2;
   document.querySelector("#sound_ms1").currentTime = 0;
   document.querySelector("#sound_ms1").play();
 
@@ -193,7 +180,7 @@ function clickMS2() {
   motorsav2.querySelector("img").classList.add("zoomaway");
   motorsav2.addEventListener("animationend", motorsav2Gone);
 
-  document.querySelector("#sound_ms2").volume = 0.3;
+  document.querySelector("#sound_ms2").volume = 0.2;
   document.querySelector("#sound_ms2").currentTime = 0;
   document.querySelector("#sound_ms2").play();
 
@@ -241,9 +228,6 @@ let sheriff = document.querySelector("#sheriff_container");
 
 
   sheriff.addEventListener("click", clickSheriff);
-  if (liv > 3) {
-    givLiv();
-  }
 }
 function clickMassakremand() {
   console.log("klik massakremand");
